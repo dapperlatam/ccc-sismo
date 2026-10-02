@@ -1,26 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --ground: #F9F7FA;
+  --surface: #FFFFFF;
+  --surface-2: #F3F1F5;
+  --surface-3: #ECE8EF;
+  --ink: #1C0B28;
+  --ink-soft: #624C76;
+  --ink-faint: #8C7A9C;
+  --border: #E1DCE5;
+  --accent: #3F1C5F;
+  --accent-dark: #2D1444;
+  --accent-light: #806995;
+  --accent-lighter: #B7A8C7;
+  --good: #4D7C0F;
+  --good-soft: #EEF5DE;
+  --brass: #B0904F;
+  --brass-dark: #7A6125;
+  --brass-soft: #F6EFDF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #170E20;
+  --surface: #22152E;
+  --surface-2: #2C1D3A;
+  --surface-3: #35233F;
+  --ink: #F0EEF2;
+  --ink-soft: #B3A5C0;
+  --ink-faint: #8A7B99;
+  --border: #3E2B50;
+  --accent: #C1ABD6;
+  --accent-dark: #B9A2CD;
+  --accent-light: #9F8DB4;
+  --accent-lighter: #4A3559;
+  --good: #A3D65C;
+  --good-soft: #26320F;
+  --brass: #D2B378;
+  --brass-dark: #D2B378;
+  --brass-soft: rgba(210, 179, 120, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Los logos son oscuros: en modo oscuro el de Dapper se vuelve blanco
+   y el de la CCC se coloca sobre una base blanca */
+:root[data-theme="dark"] .logo-dapper {
+  filter: brightness(0) invert(1);
+}
+:root[data-theme="dark"] .logo-ccc {
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+html {
+  background: var(--ground);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Outfit", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
